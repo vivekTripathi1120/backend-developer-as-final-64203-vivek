@@ -1,0 +1,620 @@
+{
+  "info": {
+    "_postman_id": "e15bb1f2-cb17-4867-b03b-a7559682b63f",
+    "name": "Resource-MGMT",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "38353774"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "http://localhost:8080/user/deleteUser",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_1d72}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/user/deleteUser",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "user",
+                "deleteUser"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "user/updateUser",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_secret_0twj}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"john_updated\",\r\n  \"email\": \"john_updated@example.com\",\r\n  \"password\": \"NewPassword123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/user/updateUser",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "user",
+                "updateUser"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "user/fetchUsers",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{supabase_service_role_api_key_0twj}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/user/fetchUsers?pageNumber=1&pageSize=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "user",
+                "fetchUsers"
+              ],
+              "query": [
+                {
+                  "key": "pageNumber",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "registerUser",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"test\",\r\n  \"email\": \"test1@example.com\",\r\n  \"password\": \"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/user/register/user",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "user",
+                "register",
+                "user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "user/profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_secret_0twj}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/user/profile",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "user",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Resource",
+      "item": [
+        {
+          "name": "createResource",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_11qv}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Conference Room A\",\r\n  \"description\": \"Large conference room with projector\",\r\n  \"price\": 500.00,\r\n  \"available\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/resources/createResource?resourceId=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "resources",
+                "createResource"
+              ],
+              "query": [
+                {
+                  "key": "resourceId",
+                  "value": "1",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "resources/fetchResource",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_11qv}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/resources/fetchResource",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "resources",
+                "fetchResource"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "resources/updateResource",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_secret_11qv}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Conference Room A Updated\",\r\n  \"description\": \"Updated conference room\",\r\n  \"price\": 750.00,\r\n  \"available\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/resources/updateResource?resourceId=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "resources",
+                "updateResource"
+              ],
+              "query": [
+                {
+                  "key": "resourceId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "resources/deleteResource",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_secret_12wf}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/resources/deleteResource?resourceId=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "resources",
+                "deleteResource"
+              ],
+              "query": [
+                {
+                  "key": "resourceId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "reservation",
+      "item": [
+        {
+          "name": "http://localhost:8080/reservations/createReservation",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{supabase_service_role_api_key_0bzq}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"resourceId\": 1,\r\n  \"startTime\": \"2026-08-28T10:00:00\",\r\n  \"endTime\": \"2026-08-28T12:00:00\",\r\n  \"price\": 1000.00,\r\n  \"status\": \"PENDING\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/reservations/createReservation",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "reservations",
+                "createReservation"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reservations/updateReservation",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{supabase_service_role_api_key_0t66}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"resourceId\": 1,\r\n  \"startTime\": \"2026-08-28T14:00:00\",\r\n  \"endTime\": \"2026-08-28T16:00:00\",\r\n  \"price\": 1200.00,\r\n  \"status\": \"CANCELLED\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/reservations/updateReservation?reservationId=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "reservations",
+                "updateReservation"
+              ],
+              "query": [
+                {
+                  "key": "reservationId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reservations/deleteReservation",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{supabase_service_role_api_key_0t66}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/reservations/deleteReservation?reservationId=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "reservations",
+                "deleteReservation"
+              ],
+              "query": [
+                {
+                  "key": "reservationId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reservations/fetchReservations",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_0t66}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/reservations/fetchReservations",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "reservations",
+                "fetchReservations"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:8080/reservations/fetchReservations",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_secret_0t66}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/reservations/fetchReservations?resourceId=1&status=CONFIRMED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "reservations",
+                "fetchReservations"
+              ],
+              "query": [
+                {
+                  "key": "resourceId",
+                  "value": "1"
+                },
+                {
+                  "key": "status",
+                  "value": "CONFIRMED"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "login",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "// {\r\n//     \"email\": \"admin@example.com\",\r\n//     \"password\": \"password\"\r\n// }\r\n\r\n\r\n// {\r\n//     \"email\": \"test1@example.com\",\r\n//     \"password\": \"Password123\"\r\n// }\r\n\r\n\r\n{\r\n    \"email\": \"vivek@example.com\",\r\n    \"password\": \"1234\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/user/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "user",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "auth_secret_0twj",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_0twj",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_1d72",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_11qv",
+      "secret": true
+    },
+    {
+      "key": "auth_secret_11qv",
+      "secret": true
+    },
+    {
+      "key": "auth_secret_12wf",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_0bzq",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_0t66",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0t66",
+      "secret": true
+    },
+    {
+      "key": "auth_secret_0t66",
+      "secret": true
+    },
+    {
+      "key": "auth_secret_0576",
+      "secret": true
+    }
+  ]
+}

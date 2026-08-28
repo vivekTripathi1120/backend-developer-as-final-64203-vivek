@@ -1,0 +1,30 @@
+package com.project.resource_booking_system.dto;
+
+import com.project.resource_booking_system.utils.ReservationStatus;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+@Getter
+@Setter
+public class ReservationRequestDTO {
+
+    @NotNull(message = "Resource ID is required")
+    private Long resourceId;
+
+    @NotNull(message = "Start time is required")
+    private LocalDateTime startTime;
+
+    @NotNull(message = "End time is required")
+    private LocalDateTime endTime;
+
+    @NotNull(message = "Price is required")
+    @DecimalMin(value = "0.0", inclusive = false, message = "Price must be greater than 0")
+    private BigDecimal price;
+
+    private ReservationStatus status;
+}
